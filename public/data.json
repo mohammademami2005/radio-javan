@@ -1,0 +1,561 @@
+[
+  {
+    "artists": [
+      {
+        "id": "1",
+        "name": "Behnam Bani",
+        "avatar": "/images/artists/Behnam-Bani.png"
+      },
+      {
+        "id": "2",
+        "name": "Erfan Tahmasebi",
+        "avatar": "/images/artists/Erfan-Tahmasebi.webp"
+      },
+      {
+        "id": "3",
+        "name": "Shadmehr Aghili",
+        "avatar": "/images/artists/shadmehr-aghili.png"
+      },
+      {
+        "id": "4",
+        "name": "Garsha Rezaei",
+        "avatar": "/images/artists/Garsha-Rezaei.webp"
+      },
+      {
+        "id": "5",
+        "name": "Sina Shabankhani",
+        "avatar": "https://randomuser.me/api/portraits/men/18.jpg"
+      },
+      {
+        "id": "6",
+        "name": "Sirvan Khosravi",
+        "avatar": "https://randomuser.me/api/portraits/men/20.jpg"
+      },
+      {
+        "id": "7",
+        "name": "Mohsen Ebrahimzadeh",
+        "avatar": "https://randomuser.me/api/portraits/men/22.jpg"
+      },
+      {
+        "id": "8",
+        "name": "Macan Band",
+        "avatar": "https://randomuser.me/api/portraits/men/24.jpg"
+      },
+      {
+        "id": "9",
+        "name": "Hamid Hiraad",
+        "avatar": "https://randomuser.me/api/portraits/men/26.jpg"
+      },
+      {
+        "id": "10",
+        "name": "Reza Sadeghi",
+        "avatar": "https://randomuser.me/api/portraits/men/28.jpg"
+      },
+      {
+        "id": "11",
+        "name": "Shahram Shabpareh",
+        "avatar": "https://randomuser.me/api/portraits/men/30.jpg"
+      },
+      {
+        "id": "12",
+        "name": "Ebi",
+        "avatar": "https://randomuser.me/api/portraits/men/32.jpg"
+      },
+      {
+        "id": "13",
+        "name": "Moein",
+        "avatar": "https://randomuser.me/api/portraits/men/34.jpg"
+      },
+      {
+        "id": "14",
+        "name": "Farzad Farzin",
+        "avatar": "https://randomuser.me/api/portraits/men/36.jpg"
+      },
+      {
+        "id": "15",
+        "name": "Ali Yasini",
+        "avatar": "https://randomuser.me/api/portraits/men/38.jpg"
+      }
+    ],
+    "albums": [
+      {
+        "id": "1",
+        "title": "Avalin",
+        "artistId": "3",
+        "cover": "https://picsum.photos/200?1"
+      },
+      {
+        "id": "2",
+        "title": "Havaye Man",
+        "artistId": "1",
+        "cover": "https://picsum.photos/200?2"
+      },
+      {
+        "id": "3",
+        "title": "Jange Del",
+        "artistId": "4",
+        "cover": "https://picsum.photos/200?3"
+      },
+      {
+        "id": "4",
+        "title": "Ashegham",
+        "artistId": "5",
+        "cover": "https://picsum.photos/200?4"
+      },
+      {
+        "id": "5",
+        "title": "To Bashi",
+        "artistId": "7",
+        "cover": "https://picsum.photos/200?5"
+      },
+      {
+        "id": "6",
+        "title": "Zibaye Man",
+        "artistId": "8",
+        "cover": "https://picsum.photos/200?6"
+      },
+      {
+        "id": "7",
+        "title": "Havaye To",
+        "artistId": "6",
+        "cover": "https://picsum.photos/200?7"
+      },
+      {
+        "id": "8",
+        "title": "Bighararam",
+        "artistId": "9",
+        "cover": "https://picsum.photos/200?8"
+      },
+      {
+        "id": "9",
+        "title": "Mesle Man",
+        "artistId": "10",
+        "cover": "https://picsum.photos/200?9"
+      },
+      {
+        "id": "10",
+        "title": "Shabpareh Hits",
+        "artistId": "11",
+        "cover": "https://picsum.photos/200?10"
+      },
+      {
+        "id": "11",
+        "title": "Koohe Gham",
+        "artistId": "12",
+        "cover": "https://picsum.photos/200?11"
+      },
+      {
+        "id": "12",
+        "title": "Havaset Be Man Bashe",
+        "artistId": "14",
+        "cover": "https://picsum.photos/200?12"
+      },
+      {
+        "id": "13",
+        "title": "Delam Gerefte",
+        "artistId": "13",
+        "cover": "https://picsum.photos/200?13"
+      },
+      {
+        "id": "14",
+        "title": "Hese Asheghi",
+        "artistId": "2",
+        "cover": "https://picsum.photos/200?14"
+      },
+      {
+        "id": "15",
+        "title": "Barf",
+        "artistId": "15",
+        "cover": "https://picsum.photos/200?15"
+      },
+      {
+        "id": "16",
+        "title": "Shodi Hame Donyam",
+        "artistId": "3",
+        "cover": "https://picsum.photos/200?16"
+      },
+      {
+        "id": "17",
+        "title": "Zendegi",
+        "artistId": "1",
+        "cover": "https://picsum.photos/200?17"
+      },
+      {
+        "id": "18",
+        "title": "Ghorse Safar",
+        "artistId": "12",
+        "cover": "https://picsum.photos/200?18"
+      },
+      {
+        "id": "19",
+        "title": "Aroom Aroom",
+        "artistId": "9",
+        "cover": "https://picsum.photos/200?19"
+      },
+      {
+        "id": "20",
+        "title": "Bi Ehsas",
+        "artistId": "5",
+        "cover": "https://picsum.photos/200?20"
+      }
+    ],
+    "tracks": [
+      {
+        "id": "1",
+        "title": "Bi To",
+        "artistId": "3",
+        "albumId": "1",
+        "duration": 215,
+        "url": "https://example.com/music/1.mp3"
+      },
+      {
+        "id": "2",
+        "title": "Ye Lahze",
+        "artistId": "3",
+        "albumId": "1",
+        "duration": 198,
+        "url": "https://example.com/music/2.mp3"
+      },
+      {
+        "id": "3",
+        "title": "Divoonegi",
+        "artistId": "1",
+        "albumId": "2",
+        "duration": 230,
+        "url": "https://example.com/music/3.mp3"
+      },
+      {
+        "id": "4",
+        "title": "Hesse Khoob",
+        "artistId": "4",
+        "albumId": "3",
+        "duration": 205,
+        "url": "https://example.com/music/4.mp3"
+      },
+      {
+        "id": "5",
+        "title": "Nabash",
+        "artistId": "5",
+        "albumId": "4",
+        "duration": 178,
+        "url": "https://example.com/music/5.mp3"
+      },
+      {
+        "id": "6",
+        "title": "Tanha",
+        "artistId": "7",
+        "albumId": "5",
+        "duration": 242,
+        "url": "https://example.com/music/6.mp3"
+      },
+      {
+        "id": "7",
+        "title": "Harja Ke Hasti",
+        "artistId": "8",
+        "albumId": "6",
+        "duration": 210,
+        "url": "https://example.com/music/7.mp3"
+      },
+      {
+        "id": "8",
+        "title": "Cheshmato Beband",
+        "artistId": "6",
+        "albumId": "7",
+        "duration": 220,
+        "url": "https://example.com/music/8.mp3"
+      },
+      {
+        "id": "9",
+        "title": "Delbar",
+        "artistId": "9",
+        "albumId": "8",
+        "duration": 195,
+        "url": "https://example.com/music/9.mp3"
+      },
+      {
+        "id": "10",
+        "title": "Asheghet Mandam",
+        "artistId": "10",
+        "albumId": "9",
+        "duration": 260,
+        "url": "https://example.com/music/10.mp3"
+      },
+      {
+        "id": "11",
+        "title": "Parandeh",
+        "artistId": "11",
+        "albumId": "10",
+        "duration": 210,
+        "url": "https://example.com/music/11.mp3"
+      },
+      {
+        "id": "12",
+        "title": "Gomshodeh",
+        "artistId": "12",
+        "albumId": "11",
+        "duration": 245,
+        "url": "https://example.com/music/12.mp3"
+      },
+      {
+        "id": "13",
+        "title": "Bigharar",
+        "artistId": "14",
+        "albumId": "12",
+        "duration": 228,
+        "url": "https://example.com/music/13.mp3"
+      },
+      {
+        "id": "14",
+        "title": "To Ra Doost Daram",
+        "artistId": "13",
+        "albumId": "13",
+        "duration": 238,
+        "url": "https://example.com/music/14.mp3"
+      },
+      {
+        "id": "15",
+        "title": "Hese Khoob",
+        "artistId": "2",
+        "albumId": "14",
+        "duration": 177,
+        "url": "https://example.com/music/15.mp3"
+      },
+      {
+        "id": "16",
+        "title": "Ghabool Kon",
+        "artistId": "15",
+        "albumId": "15",
+        "duration": 201,
+        "url": "https://example.com/music/16.mp3"
+      },
+      {
+        "id": "17",
+        "title": "Zendegi Ba To",
+        "artistId": "3",
+        "albumId": "16",
+        "duration": 223,
+        "url": "https://example.com/music/17.mp3"
+      },
+      {
+        "id": "18",
+        "title": "Mano Bebakhsh",
+        "artistId": "1",
+        "albumId": "17",
+        "duration": 185,
+        "url": "https://example.com/music/18.mp3"
+      },
+      {
+        "id": "19",
+        "title": "Safar",
+        "artistId": "12",
+        "albumId": "18",
+        "duration": 257,
+        "url": "https://example.com/music/19.mp3"
+      },
+      {
+        "id": "20",
+        "title": "Aroom Aroom",
+        "artistId": "9",
+        "albumId": "19",
+        "duration": 199,
+        "url": "https://example.com/music/20.mp3"
+      },
+      {
+        "id": "21",
+        "title": "Bi Ehsas",
+        "artistId": "5",
+        "albumId": "20",
+        "duration": 175,
+        "url": "https://example.com/music/21.mp3"
+      },
+      {
+        "id": "22",
+        "title": "Royaye Shirin",
+        "artistId": "4",
+        "albumId": "3",
+        "duration": 214,
+        "url": "https://example.com/music/22.mp3"
+      },
+      {
+        "id": "23",
+        "title": "Zendegi Kon",
+        "artistId": "6",
+        "albumId": "7",
+        "duration": 268,
+        "url": "https://example.com/music/23.mp3"
+      },
+      {
+        "id": "24",
+        "title": "Ba To Mimoonam",
+        "artistId": "8",
+        "albumId": "6",
+        "duration": 206,
+        "url": "https://example.com/music/24.mp3"
+      },
+      {
+        "id": "25",
+        "title": "Toei Eshgh",
+        "artistId": "14",
+        "albumId": "12",
+        "duration": 192,
+        "url": "https://example.com/music/25.mp3"
+      },
+      {
+        "id": "26",
+        "title": "Divooneh Bazi",
+        "artistId": "2",
+        "albumId": "14",
+        "duration": 209,
+        "url": "https://example.com/music/26.mp3"
+      },
+      {
+        "id": "27",
+        "title": "Ghalbam",
+        "artistId": "10",
+        "albumId": "9",
+        "duration": 187,
+        "url": "https://example.com/music/27.mp3"
+      },
+      {
+        "id": "28",
+        "title": "Ayandeh",
+        "artistId": "13",
+        "albumId": "13",
+        "duration": 265,
+        "url": "https://example.com/music/28.mp3"
+      },
+      {
+        "id": "29",
+        "title": "Bebar",
+        "artistId": "11",
+        "albumId": "10",
+        "duration": 233,
+        "url": "https://example.com/music/29.mp3"
+      },
+      {
+        "id": "30",
+        "title": "Rafteh",
+        "artistId": "12",
+        "albumId": "11",
+        "duration": 241,
+        "url": "https://example.com/music/30.mp3"
+      }
+    ],
+    "playlists": [
+      {
+        "id": "1",
+        "title": "Top Hits",
+        "cover": "https://picsum.photos/200?21",
+        "tracks": [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+        ]
+      },
+      {
+        "id": "2",
+        "title": "Relax Mood",
+        "cover": "https://picsum.photos/200?22",
+        "tracks": [
+          "8",
+          "10",
+          "12",
+          "17"
+        ]
+      },
+      {
+        "id": "3",
+        "title": "Workout",
+        "cover": "https://picsum.photos/200?23",
+        "tracks": [
+          "3",
+          "7",
+          "14",
+          "26",
+          "23"
+        ]
+      },
+      {
+        "id": "4",
+        "title": "Persian Classics",
+        "cover": "https://picsum.photos/200?24",
+        "tracks": [
+          "11",
+          "12",
+          "19",
+          "29"
+        ]
+      },
+      {
+        "id": "5",
+        "title": "Love Songs",
+        "cover": "https://picsum.photos/200?25",
+        "tracks": [
+          "4",
+          "5",
+          "9",
+          "13",
+          "22"
+        ]
+      },
+      {
+        "id": "6",
+        "title": "Happy Vibes",
+        "cover": "https://picsum.photos/200?26",
+        "tracks": [
+          "6",
+          "7",
+          "16",
+          "18"
+        ]
+      },
+      {
+        "id": "7",
+        "title": "Pop Stars",
+        "cover": "https://picsum.photos/200?27",
+        "tracks": [
+          "1",
+          "3",
+          "8",
+          "24",
+          "26"
+        ]
+      },
+      {
+        "id": "8",
+        "title": "Party Mix",
+        "cover": "https://picsum.photos/200?28",
+        "tracks": [
+          "10",
+          "20",
+          "21",
+          "23"
+        ]
+      },
+      {
+        "id": "9",
+        "title": "Old But Gold",
+        "cover": "https://picsum.photos/200?29",
+        "tracks": [
+          "11",
+          "14",
+          "19",
+          "30"
+        ]
+      },
+      {
+        "id": "10",
+        "title": "Persian Rap",
+        "cover": "https://picsum.photos/200?30",
+        "tracks": [
+          "3",
+          "15",
+          "26",
+          "7"
+        ]
+      }
+    ]
+  }
+]
