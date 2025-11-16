@@ -53,7 +53,7 @@ export default function Header() {
     },
   ];
   return (
-    <header className="flex flex-col justify-start gap-[5%] rounded-4xl pt-3 flex-wrap w-1/5 h-[75%] fixed top-5 right-5  bg-neutral-800/10 backdrop-blur-[5px] ">
+    <header className="flex flex-col justify-start gap-[5%] rounded-4xl  pt-3 flex-wrap w-[20%] h-[75%] fixed top-5 right-5  bg-neutral-800/10 backdrop-blur-[5px] ">
       {/* logo  */}
       <figure className="flex w-full h-[10] justify-center items-center p-5 ">
         <img src="/images/logo.png" alt="" className=" object-contain" />
