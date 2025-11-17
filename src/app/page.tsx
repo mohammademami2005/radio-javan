@@ -10,11 +10,11 @@ export default async function Home() {
   
   return (
     <>
-      <main className="w-[78%] h-auto absolute top-0 left-0">
+      <main className="w-[78%] h-auto absolute top-0 left-0 pb-[13vh]">
         {/* slider and banner  */}
         <section className="w-full h-auto pt-10 px-5">
-          <HomeSlider data={data[0].artists} />
-          <div className="bg-[url(/images/radio-javan2.png)] bg-cover bg-no-repeat rounded-3xl bg-center w-full h-90"></div>
+          <HomeSlider data={data[2].tracks} />
+          <div className="bg-[url(/images/radio-javan2.png)] bg-cover bg-no-repeat rounded-3xl bg-center mt-[5%] w-full h-90"></div>
         </section>
 
         <HomeMusicsSection tracks={data[0].tracks} />

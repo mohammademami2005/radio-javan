@@ -6,13 +6,10 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
 import { A11y, Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules";
-interface HomeSliderProps {
-  id: number;
-  name: string;
-  avatar: string;
-}
+import { TracksState } from "../types/interfaces";
 
-export default function HomeSlider({data}: {data: HomeSliderProps[]}) {
+
+export default function HomeSlider({data}: {data: TracksState[]}) {
   console.log( data);
 
   return (
@@ -26,17 +23,17 @@ export default function HomeSlider({data}: {data: HomeSliderProps[]}) {
       pagination={{ clickable: false }}
       className="w-full h-auto"
     >
-      {data.map((artist) => (
-        <SwiperSlide key={artist.id} dir="ltr">
+      {data.map((track) => (
+        <SwiperSlide key={track.id} dir="ltr">
           <div className="w-full h-72 rounded-xl overflow-hidden shadow-lg bg-neutral-800">
             <Image
-              src={artist.avatar}
-              alt=""
+              src={track.cover}
+              alt={track.title}
               width={200} height={400}
               className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
             />
           </div>
-          <p className="text-white mt-2 text-center">{artist.name}</p>
+          <p className="text-white mt-2 text-center absolute right-2 bottom-2">{track.title}</p>
         </SwiperSlide>
       ))}
     </Swiper>

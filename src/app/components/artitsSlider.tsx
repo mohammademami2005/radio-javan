@@ -13,15 +13,10 @@ import {
   Scrollbar,
 } from "swiper/modules";
 import Link from "next/link";
-interface HomeSliderProps {
-  id: number;
-  name: string;
-  avatar: string;
-}
+import { HomeSliderProps } from "../types/interfaces";
+
 
 export default function ArtistSlider({ data }: { data: HomeSliderProps[] }) {
-  console.log(data);
-
   return (
     <Swiper
       modules={[Navigation, Scrollbar, A11y, Autoplay]}
@@ -35,7 +30,7 @@ export default function ArtistSlider({ data }: { data: HomeSliderProps[] }) {
     >
       {data.map((artist) => (
         <SwiperSlide key={artist.id} dir="ltr">
-          <Link href={"/soungs/" + artist.id + artist.name}>
+          <Link href={"/artists/" + artist.id + artist.name}>
             <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg bg-neutral-800">
               <Image
                 src={artist.avatar}

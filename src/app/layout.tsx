@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono,El_Messiri } from "next/font/google";
 import "./globals.css";
 import Header from "./components/header";
+import PlayBar from "./components/playBar";
+import Provider from "./providers/QueryClientProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,8 +30,9 @@ export default function RootLayout({
       <body
         className={` ${geistMono.variable} antialiased bg-neutral-900`}
       >
-        <Header />
-        {children}
+        <Provider>
+          {children}
+        </Provider>
       </body>
     </html>
   );

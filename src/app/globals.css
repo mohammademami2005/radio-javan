@@ -19,11 +19,170 @@
   }
 }
 
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+}
 
 body {
   /* background: var(--background); */
   color: var(--foreground);
   font-family: "El Messiri", Helvetica, sans-serif;
+}
 
+.range-slider {
+  -webkit-appearance: none; /* حذف استایل پیش‌فرض */
+  /* width: 300px; */
+  height: 16px;
+  background: #ddd; /* رنگ ریل */
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  direction: ltr;
+}
+
+/* Track برای WebKit */
+.range-slider::-webkit-slider-runnable-track {
+  height: 16px;
+  background: #ddd;
+  border-radius: 4px;
+}
+
+/* Thumb برای WebKit */
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #5d5e5d; /* رنگ دکمه */
+  border-radius: 50%;
+  margin-top: -6px; /* مرکز کردن thumb روی track */
+  transition: background 0.3s;
+}
+
+.range-slider::-webkit-slider-thumb:hover {
+  background: #8a8787;
+}
+
+/* Thumb برای Firefox */
+.range-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #4f46e5;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Track برای Firefox */
+.range-slider::-moz-range-track {
+  height: 16px;
+  background: #ddd;
+  border-radius: 4px;
+}
+
+/* Thumb برای IE/Edge */
+.range-slider::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background: #36fb13;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Track برای IE/Edge */
+.range-slider::-ms-track {
+  height: 16px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.range-slider::-ms-fill-lower {
+  background: #ddd;
+  border-radius: 4px;
+}
+.range-slider::-ms-fill-upper {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+/* volume */
+.range-slider1 {
+  -webkit-appearance: none; /* حذف استایل پیش‌فرض */
+  /* width: 300px; */
+  height: 8px;
+  background: #ddd; /* رنگ ریل */
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  direction: ltr;
+}
+
+/* Track برای WebKit */
+.range-slider1::-webkit-slider-runnable-track {
+  height: 8px;
+  background: #ddd;
+  border-radius: 4px;
+}
+
+/* Thumb برای WebKit */
+.range-slider1::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #5d5e5d; /* رنگ دکمه */
+  border-radius: 50%;
+  margin-top: -6px; /* مرکز کردن thumb روی track */
+  transition: background 0.3s;
+}
+
+.range-slider1::-webkit-slider-thumb:hover {
+  background: #8a8787;
+}
+
+/* Thumb برای Firefox */
+.range-slider1::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #8a8787;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Track برای Firefox */
+.range-slider1::-moz-range-track {
+  height: 8px;
+  background: #ddd;
+  border-radius: 4px;
+}
+
+/* Thumb برای IE/Edge */
+.range-slider1::-ms-thumb {
+  width: 20px;
+  height: 20px;
+  background: #8a8787;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Track برای IE/Edge */
+.range-slider1::-ms-track {
+  height: 8px;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+.range-slider1::-ms-fill-lower {
+  background: #ddd;
+  border-radius: 4px;
+}
+.range-slider1::-ms-fill-upper {
+  background: #ddd;
+  border-radius: 4px;
 }

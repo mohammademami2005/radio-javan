@@ -1,17 +1,7 @@
 import Image from 'next/image';
 import React from 'react'
+import { AudioFromStore } from '../types/interfaces';
 
-interface HomeMusicsSectionProps {
-  id: string;
-  title: string;
-  artistId: string;
-  albumId: string;
-  duration: number;
-  category: string;
-  new:boolean;
-  url: string;
-  cover?: string;
-}
 
 export default function HomeMusicsSection({tracks}: {tracks?: any}) {
     
@@ -19,11 +9,11 @@ export default function HomeMusicsSection({tracks}: {tracks?: any}) {
     <section className="w-full h-auto pt-10 px-5">
         <h2 className="text-white text-2xl font-bold mb-4">جدید ترین موسیقی ها</h2>
         <div className="flex flex-wrap justify-evenly">
-            {tracks && tracks.map((track:HomeMusicsSectionProps)=>{
+            {tracks && tracks.map((track:AudioFromStore)=>{
                 return(
                     <div key={track.id} className="w-[45%] bg-gray-800 rounded-lg p-4 m-2">
                         <Image 
-                            src={track.cover || '/images/default-cover.png'} 
+                            src={track.cover || '/images/logo2.png'} 
                             alt={track.title} 
                             width={150} 
                             height={150} 
