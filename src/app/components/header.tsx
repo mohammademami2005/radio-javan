@@ -22,8 +22,8 @@ export default function Header() {
       id: 1,
     },
     {
-      name: "مرور",
-      href: "/browse",
+      name: "هنرمندان",
+      href: "/artists",
       icon: <Menu size="32" color="currentColor" variant="TwoTone" />,
       id: 2,
     },
@@ -39,18 +39,19 @@ export default function Header() {
       icon: <MusicFilter size="32" color="currentColor" variant="TwoTone" />,
       id: 4,
     },
+        {
+      name: "پادکست",
+      href: "/podcast",
+      icon: <Sound size="32" color="currentColor" variant="TwoTone" />,
+      id: 6,
+    },
     {
       name: "ریمیکس",
       href: "/remix",
       icon: <MusicPlay size="32" color="currentColor" variant="TwoTone" />,
       id: 5,
     },
-    {
-      name: "پادکست",
-      href: "/podcast",
-      icon: <Sound size="32" color="currentColor" variant="TwoTone" />,
-      id: 6,
-    },
+
   ];
   return (
     <header className="flex flex-col justify-start gap-[5%] rounded-4xl  pt-3 flex-wrap w-[20%] h-[75%] fixed top-5 right-5  bg-neutral-800/10 backdrop-blur-[5px] ">

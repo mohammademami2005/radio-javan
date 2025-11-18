@@ -20,10 +20,9 @@ export default function Section({ data }: { data: any }) {
       <div className="flex flex-wrap justify-around items-start h-screen pb-[200px]  overflow-y-auto overflow-x-hidden scrollbar-hide transition-[margin-top] duration-400">
         {data[2].tracks.map((item: TracksState) => {
           return (
-            <Link
-            href={"/music/"+item.id+item.title}
+            <div
               key={item.id}
-              className="cursor-pointer flex flex-col gap-4"
+              className="cursor-pointer flex flex-col gap-4 transition-transform duration-300 hover:scale-105"
               onClick={() =>
                 setAudio(
                   item.id,
@@ -46,7 +45,7 @@ export default function Section({ data }: { data: any }) {
               />
               <h3 className="text-white">{item.title}</h3>
               <span>{item.new ? "new" : ""}</span>
-            </Link>
+            </div>
           );
         })}
       </div>

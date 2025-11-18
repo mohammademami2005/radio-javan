@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { useAudioStore } from "../store/store";
+import { playListStore, useAudioStore } from "../store/store";
 import Image from "next/image";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
@@ -21,14 +21,16 @@ import { TracksState } from "../types/interfaces";
 
 export default function PlayBar() {
   const url = process.env.NEXT_PUBLIC_BASE_URL;
+
   const [duration, setDuration] = useState<number>(0);
-  const [isPlayed, setIsPlayed] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [state, setState] = useState(0);
   const [volume, setVolume] = useState(100);
   const [shuffleState, setShuffleState] = useState<boolean>(false);
   const [repeatState, setRepeatState] = useState<string>("");
+  const { playState, setPlayState, setPlayList, playList } = playListStore();
   const { audio, setAudio } = useAudioStore();
+
   const { data, isLoading } = useQuery({
     queryKey: ["all"],
     queryFn: async () => {
@@ -49,9 +51,17 @@ export default function PlayBar() {
       : [];
   }, [data, audio.artistId]);
 
-  const tracks = useMemo(() => {
-    return data ? data[2].tracks : [];
-  }, [data]);
+const tracks = useMemo(() => {
+  return data ? data[2].tracks : [];
+}, [data]);
+
+useEffect(() => {
+  if (data) {
+    setPlayList(data[2].tracks);
+  }
+}, [data]);
+
+
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -71,7 +81,7 @@ export default function PlayBar() {
     const onloaded = () => {
       if (!isNaN(element.duration)) setDuration(element.duration);
 
-      if (isPlayed) {
+      if (playState) {
         element.play().catch((err) => console.log(err));
       }
     };
@@ -96,7 +106,7 @@ export default function PlayBar() {
     if (!audioRef.current) return;
     audioRef.current.src = audio.src || "";
     // setIsPlayed(true);
-    isPlayed ? audioRef.current.play() : null;
+    playState ? audioRef.current.play() : null;
   }, [audio.src]);
 
   useEffect(() => {
@@ -138,15 +148,17 @@ export default function PlayBar() {
   };
 
   function handleNextMusic() {
+    console.log(playList);
+
     let nextItem = [];
     if (shuffleState) {
-      const shuffledArray = shuffleArray(tracks);
+      const shuffledArray = shuffleArray(playList);
       nextItem = shuffledArray.filter((item: TracksState, i: number) => {
         const trackId = audio.id;
         return i + 1 === trackId;
       });
     } else {
-      nextItem = tracks.filter((item: TracksState) => {
+      nextItem = playList.filter((item: TracksState) => {
         const trackId = audio.id === tracks.length ? 1 : audio.id + 1;
 
         return item.id === trackId;
@@ -165,7 +177,7 @@ export default function PlayBar() {
       )
     );
     if (audioRef.current?.paused) {
-      setIsPlayed(true);
+      setPlayState(true);
       // audioRef.current!.play();
     }
     console.log(nextItem);
@@ -174,15 +186,12 @@ export default function PlayBar() {
   const handlePreviousMusic = () => {
     let previousItem = [];
     if (shuffleState) {
-      const shuffledArray = shuffleArray(tracks);
+      const shuffledArray = shuffleArray(playList);
       previousItem = shuffledArray.filter((item: TracksState, i: number) => {
-        const trackId = audio.id;
-        console.log(i);
-        return i + 1 === trackId;
+        return i + 1 === audio.id;
       });
-      console.log(previousItem, "helloooo");
     } else {
-      previousItem = tracks.filter((item: TracksState) => {
+      previousItem = playList.filter((item: TracksState) => {
         const trackId = audio.id === tracks[0].id ? 30 : audio.id - 1;
         console.log(trackId);
         return item.id === trackId;
@@ -201,7 +210,7 @@ export default function PlayBar() {
       )
     );
     if (audioRef.current?.paused) {
-      setIsPlayed(true);
+      setPlayState(true);
     }
   };
 
@@ -211,15 +220,15 @@ export default function PlayBar() {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
-  function shuffleArray(array: []) {
-    for (let i = array.length - 1; i > 0; i--) {
+  function shuffleArray(array: TracksState[]) {
+    const newArray = [...array]
+    for (let i = newArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
+      [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
     }
-    return array;
+    return newArray;
   }
 
-  console.log(repeatState);
   return (
     <section
       className={`${
@@ -257,8 +266,8 @@ export default function PlayBar() {
                 color="#FF8A65"
                 className="ml-5 cursor-pointer"
                 onClick={(e) => {
-                  setRepeatState("repeatOne")
-                  setShuffleState(false)
+                  setRepeatState("repeatOne");
+                  setShuffleState(false);
                 }}
               />
             ) : repeatState === "repeatOne" ? (
@@ -285,13 +294,13 @@ export default function PlayBar() {
               className="cursor-pointer"
               onClick={handleNextMusic}
             />
-            {isPlayed ? (
+            {playState ? (
               <PauseCircle
                 size="32"
                 color="#d9e3f0"
                 onClick={() => {
                   audioRef.current?.pause();
-                  setIsPlayed(false);
+                  setPlayState(false);
                 }}
                 className="cursor-pointer"
               />
@@ -301,7 +310,7 @@ export default function PlayBar() {
                 color="#d9e3f0"
                 onClick={() => {
                   audioRef.current?.play();
-                  setIsPlayed(true);
+                  setPlayState(true);
                 }}
                 className="cursor-pointer"
               />

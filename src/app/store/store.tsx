@@ -65,3 +65,36 @@ export const useAudioStore = create<AudioState>()(
     }
   )
 );
+
+interface PlayListItem {
+  id: number;
+  title: string;
+  artistId: number;
+  albumId: number;
+  src: string;
+  cover: string;
+  new: boolean;
+  length: number;
+}
+
+interface PlayListState {
+  playState: boolean;
+  setPlayState: (myState: boolean) => void;
+  playList: PlayListItem[];
+  setPlayList: (myArr: PlayListItem[]) => void;
+}
+
+export const playListStore = create<PlayListState>((set) => ({
+  playState: false,
+  setPlayState: (myState) => {
+    set((state) => ({
+      playState: myState,
+    }));
+  },
+  playList: [],
+  setPlayList: (myArr) => {
+    set((state)=>({
+      playList:myArr
+    }))
+  },
+}));

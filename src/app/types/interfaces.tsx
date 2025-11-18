@@ -4,7 +4,6 @@ export interface HomeSliderProps {
   avatar: string;
 }
 
-
 export interface AudioFromStore {
   id: string;
   title: string;
@@ -12,11 +11,10 @@ export interface AudioFromStore {
   albumId: string;
   duration: number;
   category: string;
-  new:boolean;
+  new: boolean;
   url: string;
   cover?: string;
 }
-
 
 export interface TracksState {
   id: number;
@@ -27,4 +25,11 @@ export interface TracksState {
   cover: string;
   new: boolean;
   length: number;
+}
+
+export interface AlbumItem {
+  id: number;
+  title: string;
+  artistId: number;
+  cover: string;
 }

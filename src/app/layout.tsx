@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl">
       <body
-        className={` ${geistMono.variable} antialiased bg-neutral-900`}
+        className={` ${geistMono.variable} antialiased bg-neutral-900 flex justify-between items-center flex-wrap`}
       >
         <Provider>
           {children}

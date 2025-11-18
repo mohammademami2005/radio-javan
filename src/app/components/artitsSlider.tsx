@@ -20,8 +20,8 @@ export default function ArtistSlider({ data }: { data: HomeSliderProps[] }) {
   return (
     <Swiper
       modules={[Navigation, Scrollbar, A11y, Autoplay]}
-      slidesPerView={8}
-      spaceBetween={20}
+      slidesPerView={6}
+      spaceBetween={15}
       autoplay={{ delay: 1500, disableOnInteraction: true }}
       loop={true}
       grabCursor={true}
@@ -31,10 +31,10 @@ export default function ArtistSlider({ data }: { data: HomeSliderProps[] }) {
       {data.map((artist) => (
         <SwiperSlide key={artist.id} dir="ltr">
           <Link href={"/artists/" + artist.id + artist.name}>
-            <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg bg-neutral-800">
+            <div className="w-30 h-30 rounded-full overflow-hidden shadow-lg bg-neutral-800">
               <Image
                 src={artist.avatar}
-                alt=""
+                alt={artist.name}
                 width={100}
                 height={100}
                 className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"

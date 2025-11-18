@@ -29,8 +29,8 @@ export default function HomeSlider({data}: {data: TracksState[]}) {
             <Image
               src={track.cover}
               alt={track.title}
-              width={200} height={400}
-              className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+              width={200} height={200}
+              className="w-full h-full  transition-transform duration-300 hover:scale-105"
             />
           </div>
           <p className="text-white mt-2 text-center absolute right-2 bottom-2">{track.title}</p>
