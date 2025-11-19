@@ -10,45 +10,61 @@ import {
 } from "iconsax-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Header() {
   const path = usePathname();
+    const [mediaQuery, setMediaQuery] = useState("");
+    useEffect(() => {
+      const w = window.innerWidth;
+  
+      function update() {
+        setMediaQuery(
+          w <= 640 ? "sm" : w <= 768 ? "md" : w <= 1024 ? "lg" : "xlg"
+        );
+      }
+  
+      update();
+  
+      window.addEventListener("resize", update);
+      return () => window.removeEventListener("resize", update);
+    }, []);
 
   const navList = [
     {
       name: "صفحه ی اصلی",
       href: "/",
-      icon: <Home2 size="32" color="currentColor" variant="Broken" />,
+      icon: <Home2 size={mediaQuery === 'sm'?'24':'32'} color="currentColor" variant="Broken" />,
       id: 1,
     },
     {
       name: "هنرمندان",
       href: "/artists",
-      icon: <Menu size="32" color="currentColor" variant="TwoTone" />,
+      icon: <Menu size={mediaQuery === 'sm'?'24':'32'} color="currentColor" variant="TwoTone" />,
       id: 2,
     },
     {
       name: "موزیک",
       href: "/music",
-      icon: <Musicnote size="32" color="currentColor" variant="TwoTone" />,
+      icon: <Musicnote size={mediaQuery === 'sm'?'24':'32'} color="currentColor" variant="TwoTone" />,
       id: 3,
     },
     {
       name: "آلبوم",
       href: "/album",
-      icon: <MusicFilter size="32" color="currentColor" variant="TwoTone" />,
+      icon: <MusicFilter size={mediaQuery === 'sm'?'24':'32'} color="currentColor" variant="TwoTone" />,
       id: 4,
     },
     {
       name: "پادکست",
       href: "/podcast",
-      icon: <Sound size="32" color="currentColor" variant="TwoTone" />,
+      icon: <Sound size={mediaQuery === 'sm'?'24':'32'} color="currentColor" variant="TwoTone" />,
       id: 6,
     },
     {
       name: "ریمیکس",
       href: "/remix",
-      icon: <MusicPlay size="32" color="currentColor" variant="TwoTone" />,
+      icon: <MusicPlay size={mediaQuery === 'sm'?'24':'32'} color="currentColor" variant="TwoTone" />,
       id: 5,
     },
   ];
@@ -74,7 +90,9 @@ export default function Header() {
             <li
               key={item.id}
               className={`lg:px-[5%]  ${
-                path === item.href ? "text-white" : "text-gray-400 lg:text-gray-500"
+                path === item.href
+                  ? "text-white"
+                  : "text-gray-400 lg:text-gray-500"
               } hover:text-gray-50 hover:text-sm lg:hover:text-[20px] transition-all duration-300`}
             >
               <Link
@@ -86,6 +104,13 @@ export default function Header() {
               </Link>
             </li>
           ))}
+          <li className=" lg:hidden lg:px-[5%]  hover:text-gray-50 hover:text-sm lg:hover:text-[20px] transition-all duration-300 cursor-pointer text-gray-400">
+            <div className="flex flex-col lg:flex-row justify-between lg:justify-start items-center gap-2 text-[12px] lg:text-lg">
+
+            <SearchNormal size="24" color="#d9e3f0"  />
+            جستجو
+            </div>
+          </li>
         </ul>
       </nav>
     </header>

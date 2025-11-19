@@ -245,7 +245,7 @@ export default function PlayBar() {
     <section
       className={`${
         audio.id === 0 ? "hidden" : ""
-      } text-black flex justify-center items-center w-full lg:w-[78%]    h-[12vh] fixed bottom-[12%] lg:bottom-1 left-0 z-50`}
+      } text-black flex justify-center items-center w-full lg:w-[78%]    h-[12vh] fixed bottom-[90px] lg:bottom-1 left-0 z-50`}
     >
       <div className="w-full lg:w-[98%] h-full px-2 lg:px-5 flex justify-center gap-2 lg:justify-between rounded-full backdrop-blur-2xl bg-stone-50/5 pb-2 ">
         <CloseCircle
@@ -271,7 +271,7 @@ export default function PlayBar() {
 
         {/* play pause box */}
         <div className="flex w-[55%] lg:w-[68%]  h-full flex-col justify-center items-center gap-2 pt-[1%] ">
-          <div className="flex justify-around items-center lg:w-1/2 lg:p-5 h-1/2 *:hover:text-[#FF8A65]">
+          <div className="flex justify-evenly lg:justify-around items-end lg:items-center w-full lg:w-1/2 lg:p-5 h-full lg:h-1/2 *:hover:text-[#FF8A65] ">
             {repeatState === "repeatList" ? (
               <Repeat
                 size={mediaQuery === 'sm' ? '20':mediaQuery === 'md' ? '20':"32"}
@@ -376,7 +376,7 @@ export default function PlayBar() {
         </div>
 
         {/* volume box  */}
-        <div className="w-1/5 lg:w-[12%] h-full relative flex flex-row justify-center gap-2.5 items-center  ">
+        <div className="w-1/6 lg:w-[12%] h-full relative flex flex-col lg:flex-row justify-center gap-2.5 items-center  ">
           <input
             type="range"
             name=""
@@ -385,7 +385,7 @@ export default function PlayBar() {
             step={1}
             min={0}
             max={100}
-            className="w-full range-slider1  rotate-270 lg:rotate-0"
+            className="w-full range-slider1 order-1 lg:order-0 "
             style={{ direction: "ltr" }}
           />
           {volume === 0 ? (
