@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: { artist: string } }) {
   console.log(musics, "musics");
   console.log(artist, "artist");
   return (
-    <main className="w-full h-[80vh] py-[3%] pr-[22%]">
+    <main className="w-full h-[80vh] lg:py-[3%] lg:pr-[22%]">
       <div className="flex flex-col justify-center items-center gap-5">
         <Image
           src={artist.avatar}
@@ -24,7 +24,7 @@ export default async function Page({ params }: { params: { artist: string } }) {
         />
         <p>{artist.title}</p>
         <p className="w-1/2">
-          <strong>توضیحات : </strong> لورم ایپسوم متن ساختگی با تولید سادگی
+           لورم ایپسوم متن ساختگی با تولید سادگی
           نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
           بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
           تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می

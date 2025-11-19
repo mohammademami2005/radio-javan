@@ -103,9 +103,10 @@ useEffect(() => {
   }, [audio.src]);
 
   useEffect(() => {
+    setPlayState(true)
     if (!audioRef.current) return;
-    audioRef.current.src = audio.src || "";
-    // setIsPlayed(true);
+    // audioRef.current.src = audio.src || "";
+    console.log(playState,'سلام')
     playState ? audioRef.current.play() : null;
   }, [audio.src]);
 
@@ -180,7 +181,6 @@ useEffect(() => {
       setPlayState(true);
       // audioRef.current!.play();
     }
-    console.log(nextItem);
   }
 
   const handlePreviousMusic = () => {
@@ -297,7 +297,7 @@ useEffect(() => {
             {playState ? (
               <PauseCircle
                 size="32"
-                color="#d9e3f0"
+                color="#ff8a65"
                 onClick={() => {
                   audioRef.current?.pause();
                   setPlayState(false);

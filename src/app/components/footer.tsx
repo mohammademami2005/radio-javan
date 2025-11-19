@@ -4,7 +4,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className='h-[10vh] w-full  flex justify-between mb-[10vh]'>
+    <footer className='h-[10vh] w-full  flex justify-between mb-[10vh] px-[5%]'>
         {/* logo box */}
         <div className='w-1/2 h-full  flex gap-5 items-center ' >
             <figure>

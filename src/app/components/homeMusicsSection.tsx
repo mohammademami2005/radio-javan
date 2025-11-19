@@ -1,14 +1,15 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import { AudioFromStore, TracksState } from "../types/interfaces";
+import { AudioFromStore, HomeSliderProps, TracksState } from "../types/interfaces";
 import { playListStore, useAudioStore } from "../store/store";
 import Link from "next/link";
 
-export default function HomeNewMusicsSection({ tracks }: { tracks?: any }) {
+export default function HomeNewMusicsSection({ tracks , artists }: { tracks: TracksState[], artists:HomeSliderProps[] }) {
   const newTracks = tracks.filter((item: TracksState) => {
     return item.new === true;
   });
+
   const { setAudio } = useAudioStore();
   return (
     <section className="w-full h-auto pt-10 px-5">
@@ -18,11 +19,11 @@ export default function HomeNewMusicsSection({ tracks }: { tracks?: any }) {
       <div className="flex flex-wrap justify-start">
         {newTracks &&
           newTracks.map((track: TracksState) => {
+            const artist = artists?.find(item => +item.id === track.artistId)
             return (
-              <Link
-              href={'/music/'+track.id+track.title}
+              <div
                 key={track.id}
-                className="w-[18%]  rounded-lg flex justify-center items-center gap-1 flex-col p-4 m-2"
+                className="w-[45%] lg:w-[18%]  rounded-lg flex justify-center items-center gap-1 flex-col p-4 m-2"
                 onClick={() => {
                   setAudio(
                     track.id,
@@ -43,14 +44,13 @@ export default function HomeNewMusicsSection({ tracks }: { tracks?: any }) {
                   height={200}
                   className="rounded-3xl transition-transform duration-300 hover:scale-105"
                 />
-                <h3 className="text-white text-lg font-semibold mt-2">
+                <h3 className="text-white text-md font-semibold mt-2">
                   {track.title}
                 </h3>
                 <p className="text-gray-400 text-sm">
-                  مدت زمان: {Math.floor(track.length / 60)}:
-                  {("0" + (track.length % 60)).slice(-2)}
+                  {artist && artist.name}
                 </p>
-              </Link>
+              </div>
             );
           })}
       </div>

@@ -31,7 +31,7 @@ export default function ArtistSlider({ data }: { data: HomeSliderProps[] }) {
       {data.map((artist) => (
         <SwiperSlide key={artist.id} dir="ltr">
           <Link href={"/artists/" + artist.id + artist.name}>
-            <div className="w-30 h-30 rounded-full overflow-hidden shadow-lg bg-neutral-800">
+            <div className="w-16 lg:w-30 h-16 lg:h-30 rounded-full overflow-hidden shadow-lg bg-neutral-800">
               <Image
                 src={artist.avatar}
                 alt={artist.name}

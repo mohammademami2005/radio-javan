@@ -10,19 +10,19 @@ export default async function Album() {
   console.log(data[1].albums);
   return (
     <>
-      <main className="w-full pr-[22%]">
+      <main className="w-full pr-[21%]">
         <h1
           className={`flex w-[78vw] items-center justify-start text-3xl h-[15vh] pr-8  `}
         >
           آلبوم ها
         </h1>
-        <div className="w-full h-full flex justify-start gap-5 flex-wrap">
+        <div className="w-full h-full flex  justify-start gap-5 flex-wrap p-[2%]">
           {data[1].albums.map((item: AlbumItem) => {
             return (
               <Link
               href={'/album/'+item.id+item.title}
                 key={item.id}
-                className="w-[22%] flex flex-col justify-start gap-5 items-center group"
+                className="w-[45%] lg:w-[22%] flex flex-col justify-start gap-5 items-center group"
               >
                 <Image
                   src={item.cover}

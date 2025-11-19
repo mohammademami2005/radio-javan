@@ -8,7 +8,7 @@ export default async function Music() {
   const data = await getData();
   return (
     <>
-    <main className="w-ful h-screen pr-[22%]  ">
+    <main className="w-full h-screen  pr-[22%]  ">
       <Section data={data} />
     </main>
     <Footer />
