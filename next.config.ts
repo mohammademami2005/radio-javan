@@ -48,6 +48,7 @@ const withPWA = require("next-pwa")({
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  turbopack: false,
 };
 
 export default withPWA(nextConfig);
