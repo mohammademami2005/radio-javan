@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   Home2,
   Menu,
@@ -9,16 +9,16 @@ import {
   Sound,
 } from "iconsax-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; 
-import React from "react";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
-  const path = usePathname()
+  const path = usePathname();
+
   const navList = [
     {
       name: "صفحه ی اصلی",
       href: "/",
-      icon: <Home2 size="24" color="currentColor" variant="Broken" />,
+      icon: <Home2 size="32" color="currentColor" variant="Broken" />,
       id: 1,
     },
     {
@@ -39,7 +39,7 @@ export default function Header() {
       icon: <MusicFilter size="32" color="currentColor" variant="TwoTone" />,
       id: 4,
     },
-        {
+    {
       name: "پادکست",
       href: "/podcast",
       icon: <Sound size="32" color="currentColor" variant="TwoTone" />,
@@ -51,17 +51,16 @@ export default function Header() {
       icon: <MusicPlay size="32" color="currentColor" variant="TwoTone" />,
       id: 5,
     },
-
   ];
   return (
-    <header className="hidden lg:flex flex-col justify-start gap-[5%] rounded-4xl  pt-3 flex-wrap w-[20%] h-[75%] fixed top-5 right-5  bg-stone-500/5 backdrop-blur-3xl ">
+    <header className="flex lg:flex-col justify-start gap-[5%] rounded-2xl lg:rounded-4xl p-4 lg:p-0 lg:pt-3 flex-wrap w-full lg:w-[20%] h-auto lg:h-[75%] fixed bottom-0 right-0 lg:top-5 lg:right-5  bg-stone-500/5 backdrop-blur-3xl z-[99999999999999999999]">
       {/* logo  */}
-      <figure className="flex w-full h-[10] justify-center items-center p-5 ">
+      <figure className="hidden lg:flex w-full h-[10] justify-center items-center p-5 ">
         <img src="/images/logo.png" alt="" className=" object-contain" />
       </figure>
       {/* search box  */}
-      <div className="flex w-[90%] pr-[4%] mx-auto h-[10%] rounded-3xl justify-center gap-0 items-center border border-black ">
-        <SearchNormal size="24" color="#d9e3f0" className="w-[20%]"/>
+      <div className="hidden lg:flex w-[90%] pr-[4%] mx-auto h-[10%] rounded-3xl justify-center gap-0 items-center border border-black ">
+        <SearchNormal size="24" color="#d9e3f0" className="w-[20%]" />
         <input
           type="text"
           placeholder="جستجو ..."
@@ -69,13 +68,18 @@ export default function Header() {
         />
       </div>
       {/* navbar  */}
-      <nav className=" w-full h-[65%]">
-        <ul className="flex justify-evenly flex-col h-full">
+      <nav className=" w-full  lg:h-[65%]">
+        <ul className="flex justify-between lg:justify-evenly lg:flex-col h-full">
           {navList.map((item) => (
-            <li key={item.id} className={`px-[5%]  ${path === item.href ? 'text-gray-50' :'text-gray-500'} hover:text-gray-50 hover:text-[20px] transition-all duration-300`}>
+            <li
+              key={item.id}
+              className={`lg:px-[5%]  ${
+                path === item.href ? "text-white" : "text-gray-400 lg:text-gray-500"
+              } hover:text-gray-50 hover:text-sm lg:hover:text-[20px] transition-all duration-300`}
+            >
               <Link
                 href={item.href}
-                className="flex justify-start items-center gap-2"
+                className="flex flex-col lg:flex-row justify-between lg:justify-start items-center gap-2 text-[12px] lg:text-lg"
               >
                 {item.icon}
                 {item.name}

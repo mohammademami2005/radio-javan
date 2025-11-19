@@ -161,7 +161,7 @@ export default function PlayBar() {
   };
 
   function handleNextMusic() {
-    console.log(playList);
+    console.log(playList, 'my name is mamamdmdmdddddddddddddd');
 
     let nextItem = [];
     if (shuffleState) {
@@ -245,9 +245,9 @@ export default function PlayBar() {
     <section
       className={`${
         audio.id === 0 ? "hidden" : ""
-      } text-black flex justify-center items-center w-full lg:w-[78%]    h-[12vh] fixed bottom-1 left-0 z-50`}
+      } text-black flex justify-center items-center w-full lg:w-[78%]    h-[12vh] fixed bottom-[12%] lg:bottom-1 left-0 z-50`}
     >
-      <div className="w-[98%] h-full px-5 flex justify-between rounded-full backdrop-blur-2xl bg-stone-50/5 pb-2">
+      <div className="w-full lg:w-[98%] h-full px-2 lg:px-5 flex justify-center gap-2 lg:justify-between rounded-full backdrop-blur-2xl bg-stone-50/5 pb-2 ">
         <CloseCircle
           size="32"
           color="#d9e3f0"
@@ -255,26 +255,26 @@ export default function PlayBar() {
           onClick={() => setAudio(0, "", 0, 0, "", "", false, 0)}
         />
         {/* photo and title  */}
-        <div className="flex items-center justify-start gap-4 h-full w-[15%]">
+        <div className="flex items-center justify-start gap-4 h-full  lg:w-[15%]">
           <Image
             src={audio.cover !== "" ? audio.cover : "/images/logo2.png"}
             alt={audio.title}
-            width={50}
-            height={50}
+            width={mediaQuery === 'sm'?40:50}
+            height={mediaQuery === 'sm'?40:50}
             className="rounded-full"
           />
-          <div className="h-full flex flex-col justify-center gap-2">
-            <p className="text-white">{audio.title}</p>
-            <p className="text-gray-300 text-sm">{artist?.name}</p>
+          <div className="h-full hidden  lg:flex flex-col justify-center gap-2">
+            <p className="text-white ">{audio?.title}</p>
+            <p className="text-gray-300 ">{artist?.name}</p>
           </div>
         </div>
 
         {/* play pause box */}
-        <div className="flex w-[68%]  h-full flex-col justify-center items-center gap-2 pt-[1%]">
-          <div className="flex justify-around items-center w-1/2 p-5 h-1/2 *:hover:text-[#FF8A65]">
+        <div className="flex w-[55%] lg:w-[68%]  h-full flex-col justify-center items-center gap-2 pt-[1%] ">
+          <div className="flex justify-around items-center lg:w-1/2 lg:p-5 h-1/2 *:hover:text-[#FF8A65]">
             {repeatState === "repeatList" ? (
               <Repeat
-                size={mediaQuery === 'sm' ? '25':mediaQuery === 'md' ? '20':"50"}
+                size={mediaQuery === 'sm' ? '20':mediaQuery === 'md' ? '20':"32"}
                 color="#FF8A65"
                 className="ml-5 cursor-pointer"
                 onClick={(e) => {
@@ -285,12 +285,13 @@ export default function PlayBar() {
             ) : repeatState === "repeatOne" ? (
               <RepeateOne
                 onClick={() => setRepeatState("")}
-                size="32"
+                size={mediaQuery === 'sm' ? '20':mediaQuery === 'md' ? '20':"32"}
+                className="ml-5 cursor-pointer"
                 color="#FF8A65"
               />
             ) : (
               <Repeat
-                size="32"
+                size={mediaQuery === 'sm' ? '20':mediaQuery === 'md' ? '20':"32"}
                 color="#d9e3f0"
                 className="ml-5 cursor-pointer"
                 onClick={(e) => {
@@ -301,14 +302,14 @@ export default function PlayBar() {
             )}
 
             <Next
-              size="32"
+              size={mediaQuery === 'sm' ? '20':mediaQuery === 'md' ? '20':"32"}
               color="#d9e3f0"
               className="cursor-pointer"
               onClick={handleNextMusic}
             />
             {playState ? (
               <PauseCircle
-                size="32"
+                size={mediaQuery === 'sm' ? '20':mediaQuery === 'md' ? '20':"32"}
                 color="#ff8a65"
                 onClick={() => {
                   audioRef.current?.pause();
@@ -318,7 +319,7 @@ export default function PlayBar() {
               />
             ) : (
               <Play
-                size="32"
+                size={mediaQuery === 'sm' ? '20':mediaQuery === 'md' ? '20':"32"}
                 color="#d9e3f0"
                 onClick={() => {
                   audioRef.current?.play();
@@ -329,13 +330,13 @@ export default function PlayBar() {
             )}
 
             <Previous
-              size="32"
+              size={mediaQuery === 'sm' ? '20':mediaQuery === 'md' ? '20':"32"}
               color="#d9e3f0"
               className="cursor-pointer"
               onClick={handlePreviousMusic}
             />
             <Shuffle
-              size="32"
+              size={mediaQuery === 'sm' ? '20':mediaQuery === 'md' ? '20':"32"}
               color={shuffleState ? "#ff8a65" : "#d9e3f0"}
               className="mr-5 cursor-pointer"
               onClick={() => {
@@ -345,7 +346,7 @@ export default function PlayBar() {
             {audio.src ? <audio src={audio.src} ref={audioRef} /> : null}
           </div>
           <div className="w-full h-full relative">
-            <span className="absolute top-0 right-0 text-white">
+            <span className="absolute top-0 right-0 text-white hidden" >
               {formatTime(duration)}
             </span>
             <input
@@ -368,14 +369,14 @@ export default function PlayBar() {
                 className=" h-4 rounded-full bg-gray-300"
               ></span>
             </div>
-            <span className="absolute top-0 left-0 text-white">
+            <span className="absolute top-0 left-0 text-white hidden">
               {formatTime(currentTime)}
             </span>
           </div>
         </div>
 
         {/* volume box  */}
-        <div className="w-[12%] h-full relative flex justify-center gap-2.5 items-center ">
+        <div className="w-1/5 lg:w-[12%] h-full relative flex flex-row justify-center gap-2.5 items-center  ">
           <input
             type="range"
             name=""
@@ -384,15 +385,15 @@ export default function PlayBar() {
             step={1}
             min={0}
             max={100}
-            className="w-full range-slider1 "
+            className="w-full range-slider1  rotate-270 lg:rotate-0"
             style={{ direction: "ltr" }}
           />
           {volume === 0 ? (
-            <VolumeCross size="32" color="#d9e3f0" />
+            <VolumeCross size={mediaQuery === 'sm' ? '20':mediaQuery === 'md' ? '20':"32"} color="#d9e3f0" />
           ) : volume <= 50 ? (
-            <VolumeLow1 size="32" color="#d9e3f0" />
+            <VolumeLow1 size={mediaQuery === 'sm' ? '20':mediaQuery === 'md' ? '20':"32"} color="#d9e3f0" />
           ) : (
-            <VolumeHigh size="32" color="#d9e3f0" />
+            <VolumeHigh size={mediaQuery === 'sm' ? '20':mediaQuery === 'md' ? '20':"32"} color="#d9e3f0" />
           )}
           {/* <div
               className={`w-full h-4 bg-gray-500 rounded-full flex absolute top-0 left-0 z-0 `}
