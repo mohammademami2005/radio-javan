@@ -10,13 +10,13 @@ export default async function Album() {
   console.log(data[1].albums);
   return (
     <>
-      <main className="w-full pr-[21%]">
+      <main className="w-full lg:pr-[21%]">
         <h1
           className={`flex w-[78vw] items-center justify-start text-3xl h-[15vh] pr-8  `}
         >
           آلبوم ها
         </h1>
-        <div className="w-full h-full flex  justify-start gap-5 flex-wrap p-[2%]">
+        <div className="w-full h-full flex  justify-evenly gap-5 flex-wrap p-[5%]">
           {data[1].albums.map((item: AlbumItem) => {
             return (
               <Link

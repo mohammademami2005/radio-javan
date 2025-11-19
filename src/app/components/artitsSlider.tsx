@@ -14,15 +14,30 @@ import {
 } from "swiper/modules";
 import Link from "next/link";
 import { HomeSliderProps } from "../types/interfaces";
-
+import { useEffect, useState } from "react";
 
 export default function ArtistSlider({ data }: { data: HomeSliderProps[] }) {
+  const [mediaQuery, setMediaQuery] = useState("");
+  useEffect(() => {
+    const w = window.innerWidth;
+
+    function update() {
+      setMediaQuery(
+        w <= 640 ? "sm" : w <= 768 ? "md" : w <= 1024 ? "lg" : "xlg"
+      );
+    }
+
+    update();
+
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
   return (
     <Swiper
       modules={[Navigation, Scrollbar, A11y, Autoplay]}
-      slidesPerView={6}
-      spaceBetween={15}
-      autoplay={{ delay: 1500, disableOnInteraction: true }}
+      slidesPerView={mediaQuery === 'sm' ? 4 : 7}
+      spaceBetween={mediaQuery === 'sm' ? 20:12}
+      autoplay={{ delay: 1500, disableOnInteraction: false }}
       loop={true}
       grabCursor={true}
       pagination={{ clickable: false }}
@@ -31,7 +46,7 @@ export default function ArtistSlider({ data }: { data: HomeSliderProps[] }) {
       {data.map((artist) => (
         <SwiperSlide key={artist.id} dir="ltr">
           <Link href={"/artists/" + artist.id + artist.name}>
-            <div className="w-16 lg:w-30 h-16 lg:h-30 rounded-full overflow-hidden shadow-lg bg-neutral-800">
+            <div className="w-14 lg:w-30 h-14 lg:h-30 rounded-full overflow-hidden shadow-lg bg-neutral-800">
               <Image
                 src={artist.avatar}
                 alt={artist.name}

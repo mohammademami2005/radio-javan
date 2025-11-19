@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { persist } from "zustand/middleware";
+import { createJSONStorage, persist } from "zustand/middleware";
 
 interface AudioState {
   audio: {
@@ -22,10 +22,12 @@ interface AudioState {
     newValue: boolean,
     length: number
   ) => void;
+    playState: boolean;
+  setPlayState: (myState: boolean) => void;
 }
 
 export const useAudioStore = create<AudioState>()(
-  persist(
+  // persist(
     (set) => ({
       audio: {
         id: 0,
@@ -37,6 +39,7 @@ export const useAudioStore = create<AudioState>()(
         new: false,
         length: 0,
       },
+
       setAudio: (id, title, artistId, albumId, src, cover, newValue, length) =>
         set((state) => ({
           audio: {
@@ -50,20 +53,21 @@ export const useAudioStore = create<AudioState>()(
             length,
           },
         })),
-    }),
-    {
-      name: "audio",
-      storage: {
-        getItem: (name) => {
-          const item = sessionStorage.getItem(name);
-          return item ? JSON.parse(item) : null;
-        },
-        setItem: (name, value) =>
-          sessionStorage.setItem(name, JSON.stringify(value)),
-        removeItem: (name) => sessionStorage.removeItem(name),
+      playState: false,
+      setPlayState: (myState) => {
+        set((state) => ({
+          playState: myState,
+        }));
       },
-    }
-  )
+    }),
+    // {
+    //   name: "audio",
+    //   storage:
+    //     typeof window !== "undefined"
+    //       ? createJSONStorage(() => sessionStorage)
+    //       : undefined,
+    // }
+  // )
 );
 
 interface PlayListItem {
@@ -78,23 +82,15 @@ interface PlayListItem {
 }
 
 interface PlayListState {
-  playState: boolean;
-  setPlayState: (myState: boolean) => void;
   playList: PlayListItem[];
   setPlayList: (myArr: PlayListItem[]) => void;
 }
 
 export const playListStore = create<PlayListState>((set) => ({
-  playState: false,
-  setPlayState: (myState) => {
-    set((state) => ({
-      playState: myState,
-    }));
-  },
   playList: [],
   setPlayList: (myArr) => {
-    set((state)=>({
-      playList:myArr
-    }))
+    set((state) => ({
+      playList: myArr,
+    }));
   },
 }));

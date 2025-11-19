@@ -23,13 +23,27 @@ export default function PlayBar() {
   const url = process.env.NEXT_PUBLIC_BASE_URL;
 
   const [duration, setDuration] = useState<number>(0);
+  const [mediaQuery, setMediaQuery] = useState("sm");
   const [currentTime, setCurrentTime] = useState(0);
   const [state, setState] = useState(0);
   const [volume, setVolume] = useState(100);
   const [shuffleState, setShuffleState] = useState<boolean>(false);
   const [repeatState, setRepeatState] = useState<string>("");
-  const { playState, setPlayState, setPlayList, playList } = playListStore();
-  const { audio, setAudio } = useAudioStore();
+  const {  setPlayList, playList } = playListStore();
+  const { audio, setAudio ,playState, setPlayState} = useAudioStore();
+
+  useEffect(() => {
+    const w = window.innerWidth;
+    function update() {
+      setMediaQuery(
+        w <= 640 ? "sm" : w <= 768 ? "md" : w <= 1024 ? "lg" : "xlg"
+      );
+    }
+
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   const { data, isLoading } = useQuery({
     queryKey: ["all"],
@@ -51,17 +65,15 @@ export default function PlayBar() {
       : [];
   }, [data, audio.artistId]);
 
-const tracks = useMemo(() => {
-  return data ? data[2].tracks : [];
-}, [data]);
+  const tracks = useMemo(() => {
+    return data ? data[2].tracks : [];
+  }, [data]);
 
-useEffect(() => {
-  if (data) {
-    setPlayList(data[2].tracks);
-  }
-}, [data]);
-
-
+  useEffect(() => {
+    if (data) {
+      setPlayList(data[2].tracks);
+    }
+  }, [data]);
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -103,10 +115,10 @@ useEffect(() => {
   }, [audio.src]);
 
   useEffect(() => {
-    setPlayState(true)
+    setPlayState(true);
     if (!audioRef.current) return;
     // audioRef.current.src = audio.src || "";
-    console.log(playState,'سلام')
+    console.log(playState, "سلام");
     playState ? audioRef.current.play() : null;
   }, [audio.src]);
 
@@ -221,7 +233,7 @@ useEffect(() => {
   };
 
   function shuffleArray(array: TracksState[]) {
-    const newArray = [...array]
+    const newArray = [...array];
     for (let i = newArray.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
@@ -233,7 +245,7 @@ useEffect(() => {
     <section
       className={`${
         audio.id === 0 ? "hidden" : ""
-      } text-black flex justify-center items-center w-[78%]    h-[12vh] fixed bottom-1 left-0 z-50`}
+      } text-black flex justify-center items-center w-full lg:w-[78%]    h-[12vh] fixed bottom-1 left-0 z-50`}
     >
       <div className="w-[98%] h-full px-5 flex justify-between rounded-full backdrop-blur-2xl bg-stone-50/5 pb-2">
         <CloseCircle
@@ -262,7 +274,7 @@ useEffect(() => {
           <div className="flex justify-around items-center w-1/2 p-5 h-1/2 *:hover:text-[#FF8A65]">
             {repeatState === "repeatList" ? (
               <Repeat
-                size="32"
+                size={mediaQuery === 'sm' ? '25':mediaQuery === 'md' ? '20':"50"}
                 color="#FF8A65"
                 className="ml-5 cursor-pointer"
                 onClick={(e) => {

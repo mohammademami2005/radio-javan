@@ -13,17 +13,17 @@ export default function HomeNewMusicsSection({ tracks , artists }: { tracks: Tra
   const { setAudio } = useAudioStore();
   return (
     <section className="w-full h-auto pt-10 px-5">
-      <h2 className="text-white text-2xl font-bold mb-4">
+      <h2 className="text-white text-lg lg:text-2xl font-bold my-5">
         جدید ترین موسیقی ها
       </h2>
-      <div className="flex flex-wrap justify-start">
+      <div className="flex flex-wrap justify-between lg:justify-between  ">
         {newTracks &&
           newTracks.map((track: TracksState) => {
             const artist = artists?.find(item => +item.id === track.artistId)
             return (
               <div
                 key={track.id}
-                className="w-[45%] lg:w-[18%]  rounded-lg flex justify-center items-center gap-1 flex-col p-4 m-2"
+                className="w-[45%] lg:w-[22%]  rounded-lg flex justify-center items-center gap-1 flex-col  cursor-pointer"
                 onClick={() => {
                   setAudio(
                     track.id,
@@ -40,8 +40,8 @@ export default function HomeNewMusicsSection({ tracks , artists }: { tracks: Tra
                 <Image
                   src={track.cover || "/images/logo2.png"}
                   alt={track.title}
-                  width={200}
-                  height={200}
+                  width={300}
+                  height={300}
                   className="rounded-3xl transition-transform duration-300 hover:scale-105"
                 />
                 <h3 className="text-white text-md font-semibold mt-2">

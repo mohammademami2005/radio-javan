@@ -10,15 +10,15 @@ export default async function Page() {
 
   return (
     <>
-      <main className="w-ful h-screen lg:pr-[22%]  ">
+      <main className="w-ful h-screen lg:pr-[20%]  ">
         <h1
-          className={`flex w-[78vw] items-center justify-start text-3xl h-[15vh] pr-8  `}
+          className={`flex w-[78vw] items-center justify-start text-3xl h-[15vh] p-[8%] pr-[8%] pb-4  `}
         >
           هنرمندان
         </h1>
-        <div className="w-full flex flex-wrap justify-evenly gap-10 lg:p-[3%]">
+        <div className="w-full flex flex-wrap justify-around   lg:p-[3%]">
           {data[0].artists.map((item: HomeSliderProps) => (
-            <Link key={item.id} href={"/artists/" + item.id + item.name} className="w-[40%] lg:w-[28%] flex flex-col gap-5 items-center">
+            <Link key={item.id} href={"/artists/" + item.id + item.name} className="w-[45%] lg:w-[28%] flex flex-col gap-3 lg:gap-5 items-center p-[1%]">
               <Image
                 src={item.avatar}
                 alt={item.name}

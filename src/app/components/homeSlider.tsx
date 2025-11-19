@@ -17,7 +17,7 @@ export default function HomeSlider({data}: {data: TracksState[]}) {
     modules={[Navigation, Scrollbar, A11y,Autoplay]}
       slidesPerView={2}
       spaceBetween={20}
-      autoplay= {{delay:2500,disableOnInteraction:true}}
+      autoplay= {{delay:800,disableOnInteraction:false}}
       loop={true}
       grabCursor={true}
       pagination={{ clickable: false }}
@@ -25,12 +25,12 @@ export default function HomeSlider({data}: {data: TracksState[]}) {
     >
       {data.map((track) => (
         <SwiperSlide key={track.id} dir="ltr">
-          <div className="w-full h-72 rounded-xl overflow-hidden shadow-lg bg-neutral-800">
+          <div className="w-full h-30 lg:h-96 rounded-xl overflow-hidden shadow-lg bg-neutral-800">
             <Image
               src={track.cover}
               alt={track.title}
-              width={200} height={200}
-              className="w-full h-full  transition-transform duration-300 hover:scale-105"
+              width={300} height={300}
+              className="w-full h-full object-cover object-center transition-transform duration-300 hover:scale-105"
             />
           </div>
           <p className="text-white mt-2 text-center absolute right-2 bottom-2">{track.title}</p>

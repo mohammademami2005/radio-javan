@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useAudioStore } from "../store/store";
 import { TracksState } from "../types/interfaces";
 import Link from "next/link";
+import MusicClient from "./musicClient";
 
 export default function Section({ data }: { data: any }) {
   const { setAudio, audio } = useAudioStore();
@@ -15,12 +16,12 @@ export default function Section({ data }: { data: any }) {
       >
         آهنگ ها
       </h1>
-      <div className="flex flex-wrap justify-start items-start gap-20 h-screen pb-[200px]  overflow-y-auto overflow-x-hidden scrollbar-hide transition-[margin-top] duration-400">
+      <div className="flex flex-wrap justify-evenly items-center  h-screen pb-[200px]   overflow-x-hidden scrollbar-hide transition-[margin-top] duration-400">
         {data[2].tracks.map((item: TracksState) => {
           return (
             <div
               key={item.id}
-              className="cursor-pointer flex flex-col gap-4 group "
+              className="cursor-pointer flex flex-col justify-center items-center gap-4 group w-[45%] lg:w-[22%]"
               onClick={() =>
                 setAudio(
                   item.id,
