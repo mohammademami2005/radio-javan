@@ -17,7 +17,7 @@ export default function HomeSlider({data}: {data: TracksState[]}) {
     modules={[Navigation, Scrollbar, A11y,Autoplay]}
       slidesPerView={2}
       spaceBetween={20}
-      autoplay= {{delay:800,disableOnInteraction:false}}
+      autoplay= {{delay:1500,disableOnInteraction:false}}
       loop={true}
       grabCursor={true}
       pagination={{ clickable: false }}

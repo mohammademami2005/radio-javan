@@ -1,10 +1,13 @@
+'use client'
 import { Call, Send2, Whatsapp } from 'iconsax-react'
 import Image from 'next/image'
 import React from 'react'
+import { useAudioStore } from '../store/store'
 
 export default function Footer() {
+    const {playState} = useAudioStore()
   return (
-    <footer className='h-[10vh] w-full  flex justify-between mb-[10vh] px-[5%] lg:pr-[23%]'>
+    <footer className={`h-[10vh] w-full  flex justify-between ${playState ? 'mb-44':'mb-20'} px-[5%] lg:pr-[25%]`}>
         {/* logo box */}
         <div className='w-2/3 h-full  flex gap-5 items-center ' >
             <figure>

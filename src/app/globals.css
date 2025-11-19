@@ -186,3 +186,13 @@ body {
   background: #ddd;
   border-radius: 4px;
 }
+
+
+.rotateImg{
+  animation: rotateImage 3s linear  infinite;
+}
+
+@keyframes rotateImage {
+  from{transform: rotate(0deg);}
+  to{transform: rotate(360deg);}
+}

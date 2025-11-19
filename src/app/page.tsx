@@ -11,7 +11,7 @@ export default async function Home() {
 
   return (
     <>
-      <main className="w-full lg:pr-[22%] h-auto pb-[13vh]">
+      <main className="w-full lg:pr-[22%] h-auto ">
         {/* slider and banner  */}
         <section className="w-full h-auto pt-10 px-5">
           <HomeSlider data={data[2].tracks} />

@@ -10,7 +10,7 @@ export default async function Page() {
 
   return (
     <>
-      <main className="w-ful h-screen lg:pr-[20%]  ">
+      <main className="w-ful  lg:pr-[20%]  ">
         <h1
           className={`flex w-[78vw] items-center justify-start text-3xl h-[15vh] p-[8%] pr-[8%] pb-4  `}
         >
@@ -31,6 +31,7 @@ export default async function Page() {
           ))}
         </div>
       </main>
+      <Footer />
     </>
   );
 }
