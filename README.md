@@ -5,7 +5,7 @@ This project is a **modern Music Streaming Web App** built using **Next.js**, **
 
 ## 🌐 Demo (Live Demo)
 
-🔗 **radio-javan.mohammademamiproject.ir**
+🔗 [radio-javan.mohammademamiproject.ir](https://radio-javan.mohammademamiproject.ir/)
 
 ---
 
@@ -84,8 +84,8 @@ NEXT_PUBLIC_API_BASE_URL=https://example.com/api
 
 <table>
   <tr>
-    <td><img src="/public/screenshots/desktop" width="100%" /></td>
-    <td><img src="/public/screenshots/moblie" width="100%" /></td>
+    <td><img src="/public/screenshots/desktop.png" width="100%" /></td>
+    <td><img src="/public/screenshots/mobile.png" width="100%" /></td>
   </tr>
   <tr>
     <td><img src="/public/screenshots/search.png" width="100%" /></td>
