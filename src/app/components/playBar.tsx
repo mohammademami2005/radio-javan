@@ -247,7 +247,7 @@ export default function PlayBar() {
         audio.id === 0 ? "hidden" : ""
       } text-black flex justify-center items-center w-full lg:w-[78%]    h-[12vh] fixed bottom-[90px] lg:bottom-1 left-0 z-50`}
     >
-      <div className="w-full lg:w-[98%] h-full px-2 lg:px-5 flex justify-center gap-2 lg:justify-between rounded-full backdrop-blur-2xl bg-stone-50/5 pb-2 ">
+      <div className="w-full lg:w-[98%] h-full px-2 lg:px-5 flex justify-center gap-2 lg:justify-between rounded-tl-2xl rounded-tr-2xl lg:rounded-full backdrop-blur-2xl bg-stone-50/5 pb-2 ">
         <CloseCircle
           size="32"
           color="#d9e3f0"

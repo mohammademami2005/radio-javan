@@ -72,7 +72,7 @@ export default function Header() {
     },
   ];
   return (
-    <header className="flex lg:flex-col justify-start gap-[5%] rounded-2xl lg:rounded-4xl p-4 lg:p-0 lg:pt-3 flex-wrap w-full lg:w-[20%] h-auto lg:h-[75%] fixed bottom-0 right-0 lg:top-5 lg:right-5  bg-stone-500/5 backdrop-blur-3xl z-[99999999999999999999]">
+    <header className="flex lg:flex-col justify-start gap-[5%]  lg:rounded-4xl p-4 lg:p-0 lg:pt-3 flex-wrap w-full lg:w-[20%] h-auto lg:h-[75%] fixed bottom-0 right-0 lg:top-5 lg:right-5  bg-stone-500/5 backdrop-blur-3xl z-[99999999999999999999]">
       {/* logo  */}
       <figure className="hidden lg:flex w-full h-[10] justify-center items-center p-5 ">
         <img src="/images/logo.png" alt="" className=" object-contain" />
