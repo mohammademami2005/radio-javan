@@ -94,17 +94,3 @@ export const playListStore = create<PlayListState>((set) => ({
     }));
   },
 }));
-
-interface SearchState{
-  searchState: boolean
-  setSearchState : (newState:boolean)=> void
-}
-
-export const useSearchStore = create<SearchState>((set)=>({
-  searchState:false,
-  setSearchState:(newState)=>{
-    set((state)=>({
-      searchState:newState
-    }))
-  }
-}))

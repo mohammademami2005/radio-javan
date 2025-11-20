@@ -245,9 +245,9 @@ export default function PlayBar() {
     <section
       className={`${
         audio.id === 0 ? "hidden" : ""
-      } text-black flex justify-center items-center w-full lg:w-[78%]    h-[12vh] fixed bottom-20 lg:bottom-1 left-0 z-50`}
+      } text-black flex justify-center items-center w-full lg:w-[78%]    h-[12vh] fixed bottom-[90px] lg:bottom-1 left-0 z-50`}
     >
-      <div className="w-full lg:w-[98%] h-full px-2 lg:px-5 flex  gap-2 justify-between rounded-tr-2xl rounded-tl-2xl lg:rounded-full backdrop-blur-2xl bg-stone-50/5 pb-2 ">
+      <div className="w-full lg:w-[98%] h-full px-2 lg:px-5 flex justify-center gap-2 lg:justify-between rounded-full backdrop-blur-2xl bg-stone-50/5 pb-2 ">
         <CloseCircle
           size="32"
           color="#d9e3f0"
@@ -261,7 +261,7 @@ export default function PlayBar() {
             alt={audio.title}
             width={mediaQuery === 'sm'?40:50}
             height={mediaQuery === 'sm'?40:50}
-            className={`rounded-full ${playState ? 'rotateImg':''}`}
+            className="rounded-full"
           />
           <div className="h-full hidden  lg:flex flex-col justify-center gap-2">
             <p className="text-white ">{audio?.title}</p>
@@ -346,7 +346,7 @@ export default function PlayBar() {
             {audio.src ? <audio src={audio.src} ref={audioRef} /> : null}
           </div>
           <div className="w-full h-full relative">
-            <span className="absolute bottom-0 lg:top-0 -right-2 lg:right-0 text-white text-[10px] lg:text-lg  lg:block" >
+            <span className="absolute top-0 right-0 text-white hidden" >
               {formatTime(duration)}
             </span>
             <input
@@ -369,7 +369,7 @@ export default function PlayBar() {
                 className=" h-4 rounded-full bg-gray-300"
               ></span>
             </div>
-            <span className="absolute bottom-0 lg:top-0 -left-1 lg:left-0 text-white text-[10px] lg:text-lg  lg:block">
+            <span className="absolute top-0 left-0 text-white hidden">
               {formatTime(currentTime)}
             </span>
           </div>

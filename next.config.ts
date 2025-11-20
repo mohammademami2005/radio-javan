@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 
+<<<<<<< HEAD
 const withPWA = require("next-pwa")({
   dest: "public",
   register: true,
@@ -49,6 +50,12 @@ const withPWA = require("next-pwa")({
 const nextConfig: NextConfig & { turbopack?: boolean } = {
   reactCompiler: true,
   turbopack: false,
+=======
+const nextConfig: NextConfig = {
+  /* config options here */
+  reactCompiler: true,
+  images: { domains: ['randomuser.me'] },
+>>>>>>> parent of fc139c9 (handle search component)
 };
 
 
