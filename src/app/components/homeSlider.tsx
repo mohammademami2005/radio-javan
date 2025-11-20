@@ -7,10 +7,11 @@ import "swiper/css/pagination";
 import Image from "next/image";
 import { A11y, Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules";
 import { TracksState } from "../types/interfaces";
+import { useRouter } from "next/navigation";
 
 
 export default function HomeSlider({data}: {data: TracksState[]}) {
-  console.log( data);
+  const router = useRouter()
 
   return (
     <Swiper
@@ -25,7 +26,7 @@ export default function HomeSlider({data}: {data: TracksState[]}) {
     >
       {data.map((track) => (
         <SwiperSlide key={track.id} dir="ltr">
-          <div className="w-full h-30 lg:h-96 rounded-xl overflow-hidden shadow-lg bg-neutral-800">
+          <div onClick={()=>router.push('/music/'+track.id+track.title)} className="w-full h-30 lg:h-96 rounded-xl overflow-hidden shadow-lg bg-neutral-800">
             <Image
               src={track.cover}
               alt={track.title}
