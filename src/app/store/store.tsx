@@ -22,7 +22,7 @@ interface AudioState {
     newValue: boolean,
     length: number
   ) => void;
-    playState: boolean;
+  playState: boolean;
   setPlayState: (myState: boolean) => void;
 }
 
@@ -62,10 +62,6 @@ export const useAudioStore = create<AudioState>()(
     }),
     {
       name: "audio",
-      storage:
-        typeof window !== "undefined"
-          ? createJSONStorage(() => sessionStorage)
-          : undefined,
     }
   )
 );
@@ -95,16 +91,16 @@ export const playListStore = create<PlayListState>((set) => ({
   },
 }));
 
-interface SearchState{
-  searchState: boolean,
-  setSearchState: (newState:boolean)=> void
+interface SearchState {
+  searchState: boolean;
+  setSearchState: (newState: boolean) => void;
 }
 
-export const useSearchStore = create<SearchState>((set)=>({
-    searchState: false,
-    setSearchState: (newState)=>{
-      set((state)=>({
-        searchState:newState
-      }))
-    }
-}))
+export const useSearchStore = create<SearchState>((set) => ({
+  searchState: false,
+  setSearchState: (newState) => {
+    set((state) => ({
+      searchState: newState,
+    }));
+  },
+}));
