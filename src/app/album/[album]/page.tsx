@@ -16,7 +16,7 @@ export default async function Page({ params }: { params: { album: string } }) {
     (item: TracksState) => item.id === albumId
   );
   return (
-    <main className="w-full h-screen lg:py-[3%] lg:pr-[22%]">
+    <main className="w-full h-screen lg:py-[3%] lg:pr-[22%] ">
       <span
         className="absolute top-0 left-0 w-full h-full  -z-20"
         style={{

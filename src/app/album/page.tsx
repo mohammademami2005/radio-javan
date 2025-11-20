@@ -10,7 +10,7 @@ export default async function Album() {
   console.log(data[1].albums);
   return (
     <>
-      <main className="w-full lg:pr-[21%]">
+      <main className="w-full lg:pr-[21%] ">
         <h1
           className={`flex w-[78vw] items-center justify-start text-3xl h-[15vh] pr-8  `}
         >

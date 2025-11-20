@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: { artist: string } }) {
   console.log(musics, "musics");
   console.log(artist, "artist");
   return (
-    <main className="w-full h-[80vh] lg:py-[3%] lg:pr-[22%]">
+    <main className="w-full  lg:py-[3%] lg:pr-[22%] pb-20 ">
       <div className="flex flex-col justify-center items-center gap-5">
         <Image
           src={artist.avatar}
@@ -23,7 +23,7 @@ export default async function Page({ params }: { params: { artist: string } }) {
           className="rounded-2xl"
         />
         <p>{artist.title}</p>
-        <p className="w-1/2">
+        <p className="lg:w-1/2 w-[75%] text-justify leading-6 lg:leading-10  text-sm">
            لورم ایپسوم متن ساختگی با تولید سادگی
           نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون
           بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: { artist: string } }) {
           باشد
         </p>
       </div>
-      <div className="flex flex-col gap-7">
+      <div className="flex flex-col gap-7 pr-10 py-10">
         <h3>موزیک های آلبوم</h3>
         <div className="flex gap-5">
           {musics.map((item: TracksState) => (

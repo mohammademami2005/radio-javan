@@ -11,10 +11,13 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import Search from "./search";
+import { useSearchStore } from "../store/store";
 
 export default function Header() {
   const path = usePathname();
     const [mediaQuery, setMediaQuery] = useState("");
+    const {setSearchState}=useSearchStore()
     useEffect(() => {
       const w = window.innerWidth;
   
@@ -75,14 +78,15 @@ export default function Header() {
         <img src="/images/logo.png" alt="" className=" object-contain" />
       </figure>
       {/* search box  */}
-      <div className="hidden lg:flex w-[90%] pr-[4%] mx-auto h-[10%] rounded-3xl justify-center gap-0 items-center border border-black ">
+      {/* <div className="hidden lg:flex w-[90%] pr-[4%] mx-auto h-[10%] rounded-3xl justify-center gap-0 items-center border border-black ">
         <SearchNormal size="24" color="#d9e3f0" className="w-[20%]" />
         <input
           type="text"
           placeholder="جستجو ..."
           className="h-[80%] outline-none  w-[75%]"
         />
-      </div>
+      </div> */}
+      <Search  />
       {/* navbar  */}
       <nav className=" w-full  lg:h-[65%]">
         <ul className="flex justify-between lg:justify-evenly lg:flex-col h-full">
@@ -104,7 +108,7 @@ export default function Header() {
               </Link>
             </li>
           ))}
-          <li className=" lg:hidden lg:px-[5%]  hover:text-gray-50 hover:text-sm lg:hover:text-[20px] transition-all duration-300 cursor-pointer text-gray-400">
+          <li onClick={()=>setSearchState(true)} className=" lg:hidden lg:px-[5%]  hover:text-gray-50 hover:text-sm lg:hover:text-[20px] transition-all duration-300 cursor-pointer text-gray-400">
             <div className="flex flex-col lg:flex-row justify-between lg:justify-start items-center gap-2 text-[12px] lg:text-lg">
 
             <SearchNormal size="24" color="#d9e3f0"  />
