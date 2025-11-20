@@ -27,7 +27,7 @@ interface AudioState {
 }
 
 export const useAudioStore = create<AudioState>()(
-  persist(
+  // persist(
     (set) => ({
       audio: {
         id: 0,
@@ -60,10 +60,10 @@ export const useAudioStore = create<AudioState>()(
         }));
       },
     }),
-    {
-      name: "audio",
-    }
-  )
+    // {
+    //   name: "audio",
+    // }
+  // )
 );
 
 interface PlayListItem {
